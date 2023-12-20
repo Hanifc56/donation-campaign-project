@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
@@ -8,22 +9,18 @@ const Navbar = () => {
           <img src="/public/Logo.png" alt="" className="" />
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            <NavLink to="/">
-              <li>
-                <a>Home</a>
-              </li>
-            </NavLink>
-            <NavLink to="/donation">
-              <li>
-                <a>Donation</a>
-              </li>
-            </NavLink>
-            <NavLink to="/Statistics">
-              <li>
-                <a>Statistics</a>
-              </li>
-            </NavLink>
+          <ul className=" menu-horizontal px-1">
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+
+            <li className="px-12">
+              <NavLink to="/donation">Donation</NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/Statistics">Statistics</NavLink>
+            </li>
           </ul>
         </div>
       </div>

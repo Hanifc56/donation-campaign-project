@@ -1,0 +1,16 @@
+.img-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.img {
+  width: 100%;
+}
+.overlay {
+  position: absolute;
+  top: 85%; /* Adjust this to position the overlay vertically */
+  left: 0%; /* Adjust this to position the overlay horizontally */
+  width: 100%; /* Adjust the width of the overlay */
+  height: 15%; /* Adjust the height of the overlay */
+  background-color: #19191980; /* Adjust the color and opacity */
+}
