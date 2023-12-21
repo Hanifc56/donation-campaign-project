@@ -1,5 +1,8 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useLoaderData, useParams } from "react-router-dom";
 import "./CardDetails.css";
+import { saveDonationCards } from "../../Utility/localStorage";
 const CardDetails = () => {
   const cards = useLoaderData();
   console.log(cards);
@@ -8,6 +11,11 @@ const CardDetails = () => {
   const card = cards.find((card) => card.id === idInt);
   console.log(card, id);
   const { title, picture, price, text_button_bg, description } = card;
+
+  const handleCardDetails = () => {
+    saveDonationCards(idInt);
+    toast("Donation Completed!!");
+  };
   return (
     <div className="max-w-6xl mx-auto pt-36">
       <div className=" my-12 mx-auto">
@@ -18,11 +26,13 @@ const CardDetails = () => {
           <div className="overlay rounded-b-lg flex">
             <div className=" justify-start pl-9 my-auto">
               <button
+                onClick={handleCardDetails}
                 style={{ backgroundColor: text_button_bg }}
                 className="px-6 py-4 rounded-lg text-white text-xl font-semibold"
               >
                 Donate {price}
               </button>
+              <ToastContainer />
             </div>
           </div>
         </div>
