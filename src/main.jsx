@@ -8,11 +8,13 @@ import Home from "./Components/Home/Home";
 import Donation from "./Components/Donation/Donation";
 import Statistics from "./Components/Statistics/Statistics";
 import CardDetails from "./Components/CardDetails/CardDetails";
+import ErrorPage from "./Components/Error/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
