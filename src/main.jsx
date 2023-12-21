@@ -24,11 +24,13 @@ const router = createBrowserRouter([
         path: "/card/:id",
         element: <CardDetails></CardDetails>,
         loader: () => fetch("data.json"),
-        // ! Loading for now
+        // ! Loading for now!
       },
       {
         path: "/donation",
         element: <Donation></Donation>,
+        loader: () => fetch("data.json"),
+        // ! loading for now!
       },
       {
         path: "/Statistics",
