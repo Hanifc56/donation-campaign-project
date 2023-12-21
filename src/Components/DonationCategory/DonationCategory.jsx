@@ -3,6 +3,7 @@ import Dcard from "../DCard/Dcard";
 
 const DonationCategory = () => {
   const [donationCard, setDonationCard] = useState([]);
+
   useEffect(() => {
     fetch("data.json")
       .then((res) => res.json())

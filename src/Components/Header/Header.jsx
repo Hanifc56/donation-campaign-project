@@ -1,4 +1,28 @@
+import { useEffect, useState } from "react";
+
 const Header = () => {
+  const [displayCards, setDisplayCards] = useState([]);
+
+  const handleCardCategory = (filter) => {
+    if (filter === "") {
+      setDisplayCards(displayCards);
+    } else if (filter === "food") {
+      const foodCategory = displayCards.filter(
+        (card) => card.category === "Food"
+      );
+      setDisplayCards(foodCategory);
+    } else if (filter === "health") {
+      const healthCategory = displayCards.filter(
+        (card) => card.categor === "Health"
+      );
+      setDisplayCards(healthCategory);
+    }
+  };
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((data) => setDisplayCards(data));
+  }, []);
   return (
     <div>
       <div
@@ -19,11 +43,14 @@ const Header = () => {
                 placeholder="Search here...."
                 className="font-normal text-sm  pl-7 py-5 lg:pr-40 outline-none  text-black bg-white border-l border-t border-b rounded-l-lg border-[#928888]  "
               />
-              <input
+              <button
+                onClick={handleCardCategory}
                 type="button"
-                value="Search"
+                value=""
                 className="bg-[#FF444A] pr-7 pl-7 py-4 text-lg font-semibold text-white rounded-r-lg outline-none border border-[#FF444A]"
-              />
+              >
+                Search
+              </button>
             </div>
           </div>
         </div>
