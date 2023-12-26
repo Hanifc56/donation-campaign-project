@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { getStoredCards } from "../../Utility/localStorage";
+import PropTypes from "prop-types";
 
 const Donation = () => {
   const cards = useLoaderData();
@@ -89,6 +90,9 @@ const Donation = () => {
       </div>
     </div>
   );
+};
+Donation.propTypes = {
+  card: PropTypes.object,
 };
 
 export default Donation;

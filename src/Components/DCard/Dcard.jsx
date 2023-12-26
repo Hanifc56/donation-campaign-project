@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Dcard = ({ card }) => {
   const { id, picture, card_bg, title, category, category_bg, text_button_bg } =
@@ -39,6 +40,10 @@ const Dcard = ({ card }) => {
       </Link>
     </div>
   );
+};
+
+Dcard.propTypes = {
+  card: PropTypes.object,
 };
 
 export default Dcard;

@@ -1,4 +1,5 @@
 import Dcard from "../DCard/Dcard";
+import PropTypes from "prop-types";
 
 const DonationCategory = ({ displayCards }) => {
   return (
@@ -12,4 +13,7 @@ const DonationCategory = ({ displayCards }) => {
   );
 };
 
+DonationCategory.propTypes = {
+  displayCards: PropTypes.array,
+};
 export default DonationCategory;
