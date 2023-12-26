@@ -22,7 +22,7 @@ const Donation = () => {
   }, [cards]);
   return (
     <div className="max-w-6xl mx-auto pt-36">
-      <div className="my-12 mx-auto grid lg:grid-cols-2 gap-6">
+      <div className="my-12 lg:mx-auto px-2 md:grid-cols-2 grid lg:grid-cols-2 gap-6">
         {donationCards.slice(0, dataLength).map((card) => (
           <div card={card} key={card.id}>
             <div className="card card-side bg-base-100 shadow-xl">
