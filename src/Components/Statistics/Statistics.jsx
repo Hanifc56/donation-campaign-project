@@ -1,9 +1,9 @@
-import { PieChart, Pie, Sector, Cell, Legend, Tooltip } from "recharts";
+import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
+import { getStoredCards } from "../../Utility/localStorage";
+import { useEffect, useState } from "react";
 
-const data = [
-  { name: "Total Donation", value: 400 },
-  { name: "Your Donation", value: 300 },
-];
+const donatedCards = getStoredCards();
+
 const COLORS = ["#FF444A", "#00C49F", "#FFBB28", "#FF8042"];
 
 const RADIAN = Math.PI / 180;
@@ -33,19 +33,30 @@ const renderCustomizedLabel = ({
 };
 
 const Statistics = () => {
+  const [totalCards, setTotalCards] = useState([]);
+  const data = [
+    { name: "Total Donation", id: totalCards.length },
+    { name: "Your Donation", id: donatedCards.length },
+  ];
+
+  useEffect(() => {
+    fetch("data.json")
+      .then((res) => res.json())
+      .then((data) => setTotalCards(data));
+  }, []);
   return (
     <div className="max-w-7xl mx-auto flex w-100">
       <div className="pt-32 mx-auto">
-        <PieChart width={400} height={400}>
+        <PieChart width={600} height={400}>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={80}
+            outerRadius={100}
             fill="#8884d8"
-            dataKey="value"
+            dataKey="id"
           >
             {data.map((entry, index) => (
               <Cell
