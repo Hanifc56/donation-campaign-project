@@ -45,8 +45,8 @@ const Statistics = () => {
       .then((data) => setTotalCards(data));
   }, []);
   return (
-    <div className="max-w-7xl mx-auto flex w-100">
-      <div className="pt-32 mx-auto">
+    <div className="max-w-6xl mx-auto pt-36 flex">
+      <div className="my-12 lg:mx-auto px-2 justify-center items-center">
         <PieChart width={600} height={400}>
           <Pie
             data={data}
